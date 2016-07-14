@@ -1,0 +1,29 @@
+<md-content class="md-padding" layout="column">
+  <div>
+     <md-input-container>
+       <label>Title</label>
+       <input ng-model="card.title">
+     </md-input-container>
+     <br>
+     <md-input-container>
+       <label>Image Url</label>
+       <input ng-model="card.imageurl">
+     </md-input-container>
+   </div>
+</md-content>
+<md-content class="md-padding" layout="column">
+  <h3 class="md-title">Symptoms</h2>
+  <md-chips ng-model="card.symptoms" md-enable-chip-edit="true" placeholder="Enter a symptom">
+  </md-chips>
+</md-content>
+<md-content class="md-padding" layout="column">
+  <h3 class="md-title">Actions</h2>
+  <md-chips ng-model="card.actions" md-enable-chip-edit="true" placeholder="Enter an action">
+  </md-chips>
+</md-content>
+<md-content class="md-padding" layout="column">
+  <h3 class="md-title">Notices</h2>
+  <md-chips ng-model="card.notices" md-enable-chip-edit="true" placeholder="Enter a notice">
+  </md-chips>
+</md-content>
+<input type="submit" class="btn btn-primary" ng-click="saveCard()" value="Save">

@@ -1,0 +1,31 @@
+<ng-include src="'views/card-nav.html'"></ng-include>
+<md-content class="md-padding" layout-xs="column" layout="row">
+  <div flex-xs flex-gt-xs="50" layout="column">
+    <md-card>
+     <img ng-src="{{card.imageurl}}" class="md-card-image" alt="Washed Out">
+     <md-card-title>
+       <md-card-title-text>
+         <span class="md-headline">{{card.title}}</span>
+       </md-card-title-text>
+     </md-card-title>
+     <md-card-content>
+       <h4> Symptoms </h4>
+       <ul>
+         <li ng-repeat="symptom in card.symptoms"> {{symptom}}</il>
+       </ul>
+       <h4> Actions </h4>
+       <ol>
+         <li ng-repeat="action in card.actions"> {{action}}</il>
+       </ol>
+       <h4> Notices </h4>
+       <ul>
+         <li ng-repeat="notice in card.notices"> {{notice}}</il>
+       </ul>
+     </md-card-content>
+     <md-card-actions layout="row" layout-align="end center">
+       <md-button>Action 1</md-button>
+       <md-button>Action 2</md-button>
+     </md-card-actions>
+   </md-card>
+ </div>
+</md-content>
