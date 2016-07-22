@@ -1,0 +1,33 @@
+
+<h2 class="md-title">Type Symptoms</h2>
+<md-contact-chips
+   ng-model="searchedSymptoms"
+   md-contacts="querySearch($query)"
+   md-contact-name="name"
+   md-require-match="true"
+   md-highlight-flags="i"
+   filter-selected="true"
+   placeholder="Enter Symptom">
+</md-contact-chips>
+<h2 class="md-title">Results:</h2>
+<table class="table table-striped">
+ <thead>
+   <th>Title</th>
+   <th>Symptoms</th>
+   <th>Relevance</th>
+ </thead>
+ <tbody>
+   <tr ng-repeat="card in searchedCards">
+     <td>
+       <a ng-href="/#/card/{{ card[1]._id }}">{{ card[1].title }}</a>
+     </td>
+     <td>
+       <p ng-repeat="symptom in card[1].symptoms"> {{symptom}} </p>
+     </td>
+     <td>
+       <p> {{card[0] * 100}}% </p>
+     </td>
+   </tr>
+ </tbody>
+ <button ng-click="search(cards,searchedSymptoms)" type="button" class="btn btn-default">Search</button>
+</table>

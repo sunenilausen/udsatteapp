@@ -12,7 +12,8 @@ angular
   .module('clientApp', [
     'ngRoute',
     'restangular',
-    'ngMaterial'
+    'ngMaterial',
+    'ngLodash'
   ])
   .config(function ($routeProvider, RestangularProvider) {
     RestangularProvider.setBaseUrl('http://localhost:3000');
@@ -46,6 +47,11 @@ angular
       .when('/card/:id/edit', {
         templateUrl: 'views/card-edit.html',
         controller: 'CardEditCtrl',
+      })
+      .when('/card-search', {
+        templateUrl: 'views/card-search.html',
+        controller: 'CardSearchCtrl',
+        controllerAs: 'CardSearch'
       })
       .otherwise({
         redirectTo: '/'
