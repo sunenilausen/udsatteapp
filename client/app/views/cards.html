@@ -1,23 +1,74 @@
-<a class="btn btn-primary" href="/#/create/card"><span class="glyphicon glyphicon-plus"></span> Create Card</a>
-<br>
-<table class="table table-striped">
-  <thead>
-    <th>Title</th>
-    <th>Operations</th>
-  </thead>
-  <tbody>
-    <tr ng-repeat="card in cards">
-      <td><a ng-href="/#/card/{{ card._id }}">{{ card.title }}</a></td>
-      <td>
-        <div class="button-group">
-          <a ng-href="/#/card/{{ card._id }}/edit" class="btn btn-default">
-            <span class="glyphicon glyphicon-edit"></span>
-          </a>
-          <a ng-href="/#/card/{{ card._id }}/delete" class="btn btn-danger">
-            <span class="glyphicon glyphicon-remove-circle"></span>
-          </a>
-        </div>
-      </td>
-    </tr>
-  </tbody>
-</table>
+<ng-switch on="data.selectedIndex" class="tabpanel-container">
+ <div role="tabpanel"
+      id="tab1-content"
+      aria-labelledby="tab1"
+      ng-switch-when="0"
+      md-swipe-left="next()"
+      md-swipe-right="previous()"
+      layout="row" layout-align="center center">
+    <div flex-gt-sm="90" flex-gt-md="80">
+      <h2 class="md-title inset">Oversigt</h2>
+      <md-card>
+        <md-list>
+          <md-list-item class="md-3-line" ng-repeat="card in cards">
+            <div class="md-list-item-text">
+              <h3><a ng-href="/#/card/{{ card._id }}">{{ card.title }}</a></h3>
+              <p>{{card.symptoms | joinBy: ', '}}</p>
+            </div>
+
+            <a ng-href="/#/card/{{ card._id }}/delete" class="btn btn-danger">
+              <span class="glyphicon glyphicon-remove-circle"></span>
+            </a>
+            <md-divider md-inset hide-sm ng-if="!$last"></md-divider>
+            <md-divider hide-gt-sm ng-if="!$last"></md-divider>
+          </md-list-item>
+          <md-divider></md-divider>
+          <md-list-item>
+            <md-button class="md-primary">
+              <md-icon md-svg-icon="navigation:ic_arrow_forward_24px" aria-label="Forward"></md-icon>
+              <span>Flere</span>
+            </md-button>
+          </md-list-item>
+        </md-list>
+      </md-card>
+    </div>
+  </div>
+  <div role="tabpanel"
+       id="tab2-content"
+       aria-labelledby="tab2"
+       ng-switch-when="1"
+       md-swipe-left="next()"
+       md-swipe-right="previous()"
+       layout="row" layout-align="center center">
+     <div flex-gt-sm="90" flex-gt-md="80">
+       <h2 class="md-title inset">Oversigt</h2>
+       <md-card>
+         <md-list>
+           <md-list-item class="md-3-line" ng-repeat="card in cards | orderBy :'title'">
+             <div class="md-list-item-text">
+               <h3><a ng-href="/#/card/{{ card._id }}">{{ card.title }}</a></h3>
+               <p>{{card.symptoms | joinBy: ', '}}</p>
+             </div>
+
+             <a ng-href="/#/card/{{ card._id }}/delete" class="btn btn-danger">
+               <span class="glyphicon glyphicon-remove-circle"></span>
+             </a>
+             <md-divider md-inset hide-sm ng-if="!$last"></md-divider>
+             <md-divider hide-gt-sm ng-if="!$last"></md-divider>
+           </md-list-item>
+           <md-divider></md-divider>
+           <md-list-item>
+             <md-button class="md-primary">
+               <md-icon md-svg-icon="navigation:ic_arrow_forward_24px" aria-label="Forward"></md-icon>
+               <span>Flere</span>
+             </md-button>
+           </md-list-item>
+         </md-list>
+       </md-card>
+     </div>
+   </div>
+</ng-switch>
+
+<md-button class="md-fab md-fab-bottom-right" aria-label="Add"  ng-href="/#/create/card">
+ <md-icon md-svg-icon="content:ic_add_24px" aria-label="Plus"></md-icon>
+</md-button>

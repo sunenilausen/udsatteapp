@@ -1,29 +1,40 @@
-<md-content class="md-padding" layout="column">
-  <div>
-     <md-input-container>
-       <label>Title</label>
-       <input ng-model="card.title">
-     </md-input-container>
-     <br>
-     <md-input-container>
-       <label>Image Url</label>
-       <input ng-model="card.imageurl">
-     </md-input-container>
-   </div>
-</md-content>
-<md-content class="md-padding" layout="column">
-  <h3 class="md-title">Symptoms</h2>
-  <md-chips ng-model="card.symptoms" md-enable-chip-edit="true" placeholder="Enter a symptom">
-  </md-chips>
-</md-content>
-<md-content class="md-padding" layout="column">
-  <h3 class="md-title">Actions</h2>
-  <md-chips ng-model="card.actions" md-enable-chip-edit="true" placeholder="Enter an action">
-  </md-chips>
-</md-content>
-<md-content class="md-padding" layout="column">
-  <h3 class="md-title">Notices</h2>
-  <md-chips ng-model="card.notices" md-enable-chip-edit="true" placeholder="Enter a notice">
-  </md-chips>
-</md-content>
-<input type="submit" class="btn btn-primary" ng-click="saveCard()" value="Save">
+<div flex-gt-sm="90" flex-gt-md="80" layout="column">
+  <h2 class="md-title inset">Indtastning</h2>
+  <md-card class="md-padding">
+    <md-content class="md-padding" layout="column">
+
+      <md-input-container>
+        <label>Titel</label>
+        <input ng-model="card.title">
+      </md-input-container>
+      <br>
+      <md-input-container>
+        <label>Billede URL</label>
+        <input type="text" ng-model="card.imageurl">
+      </md-input-container>
+
+      <md-input-container>
+        <label>Symptomer</label>
+        <md-chips ng-model="card.symptoms" md-enable-chip-edit="true" placeholder="Tilføj et symptom">
+        </md-chips>
+      </md-input-container>
+
+       <md-input-container>
+        <label>Aktionsplan</label>
+        <md-chips ng-model="card.actions" md-enable-chip-edit="true" placeholder="Tilføj en aktion">
+        </md-chips>
+      </md-input-container>
+
+       <md-input-container>
+        <label>"Vær opmærksom"-punkter</label>
+        <md-chips ng-model="card.notices" md-enable-chip-edit="true" placeholder="Tilføj et punkt">
+        </md-chips>
+      </md-input-container>
+
+    </md-content>
+    <md-content class="md-padding" layout="row">
+      <md-button ng-href="/#/cards"> Annuller </md-button>
+      <md-button ng-click="saveCard()" class="md-primary"> Gem </md-button>
+    </md-content>
+  </md-card>
+</div>

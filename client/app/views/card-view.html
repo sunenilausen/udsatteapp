@@ -1,6 +1,5 @@
-<ng-include src="'views/card-nav.html'"></ng-include>
 <md-content class="md-padding" layout-xs="column" layout="row">
-  <div flex-xs flex-gt-xs="50" layout="column">
+  <div flex layout="column">
     <md-card>
      <img ng-src="{{card.imageurl}}" class="md-card-image">
      <md-card-title>
@@ -9,23 +8,26 @@
        </md-card-title-text>
      </md-card-title>
      <md-card-content>
-       <h4> Symptoms </h4>
+       <h4> Symptomer </h4>
        <ul>
          <li ng-repeat="symptom in card.symptoms"> {{symptom}}</il>
        </ul>
-       <h4> Actions </h4>
+       <h4> Aktioner </h4>
        <ol>
          <li ng-repeat="action in card.actions"> {{action}}</il>
        </ol>
-       <h4> Notices </h4>
+       <h4> Vær Opmærksom </h4>
        <ul>
          <li ng-repeat="notice in card.notices"> {{notice}}</il>
        </ul>
      </md-card-content>
      <md-card-actions layout="row" layout-align="end center">
-       <md-button>Action 1</md-button>
-       <md-button>Action 2</md-button>
+       <md-button>Knap 1</md-button>
+       <md-button>Knap 2</md-button>
      </md-card-actions>
    </md-card>
  </div>
+ <md-button class="md-fab md-fab-bottom-right" aria-label="Add"  ng-href="/#/card/{{ card._id }}/edit">
+  <md-icon md-svg-icon="content:ic_create_24px" aria-label="Plus"></md-icon>
+ </md-button>
 </md-content>
