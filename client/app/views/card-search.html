@@ -1,37 +1,29 @@
 <div flex-gt-sm="90" flex-gt-md="80" layout="column">
-  <h2 class="md-title inset">Søg efter kort</h2>
+  <h2 class="md-title inset">Find kort</h2>
   <md-card class="md-padding">
-    <h2 class="md-title">Indtast Symptomer</h2>
-    <md-contact-chips
-       ng-model="searchedSymptoms"
-       md-contacts="querySearch($query)"
-       md-contact-name="name"
-       md-require-match="true"
-       md-highlight-flags="i"
-       filter-selected="true"
-       placeholder="Enter Symptom">
-    </md-contact-chips>
-    <h2 class="md-title">Resultater:</h2>
-    <table class="table table-striped">
-     <thead>
-       <th>Titel</th>
-       <th>Symptomer</th>
-       <th>Relevans</th>
-     </thead>
-     <button ng-click="search(cards,searchedSymptoms)" type="button" class="btn btn-default">Søg</button>
-     <tbody>
-       <tr ng-repeat="card in searchedCards">
-         <td>
-           <a ng-href="/#/card/{{ card[1]._id }}">{{ card[1].title }}</a>
-         </td>
-         <td>
-           <p ng-repeat="symptom in card[1].symptoms"> {{symptom}} </p>
-         </td>
-         <td>
-           <p> {{card[0] * 100}}% </p>
-         </td>
-       </tr>
-     </tbody>
-    </table>
+    <md-input-container>
+      <label>Symptomer</label>
+      <md-contact-chips
+         ng-model="searchedSymptoms"
+         md-contacts="querySearch($query)"
+         md-contact-name="name"
+         md-require-match="true"
+         md-highlight-flags="i"
+         filter-selected="true"
+         placeholder="Skriv Symptomer">
+      </md-contact-chips>
+    <md-input-container>
+    <md-content class="md-padding" layout="row">
+      <md-button class="md-raised" ng-click="search(cards,searchedSymptoms)"> Søg </md-button>
+    </md-content>
+    <md-card class="md-padding" md-theme-watch ng-repeat="card in searchedCards">
+      <md-card-title-text>
+         <span class="md-headline"><a ng-href="/#/card/{{ card[1]._id }}">{{ card[1].title }}</a></span>
+         <br>
+         <span class="md-subhead">Relevans: {{card[0] * 100}}%</span>
+         <br>
+         <p>Symptomer: {{card[1].symptoms | joinBy: ', '}}</p>
+       </md-card-title-text>
+     </md-card>
   </md-card>
 </div>
