@@ -26,4 +26,7 @@
   <md-chips ng-model="card.notices" md-enable-chip-edit="true" placeholder="Enter a notice">
   </md-chips>
 </md-content>
-<input type="submit" class="btn btn-primary" ng-click="saveCard()" value="Save">
+<md-content class="md-padding" layout="row">
+  <md-button ng-href="/#/card/{{ card._id }}"> Cancel </md-button>
+  <md-button ng-click="saveCard()" class="md-primary"> Save </md-button>
+</md-content>

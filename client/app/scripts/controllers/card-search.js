@@ -35,7 +35,7 @@ angular.module('clientApp')
         symptoms = symptoms.concat(cards[i].symptoms);
         console.log(cards[i].symptoms[0]);
       }
-      var symptoms = [
+      symptoms = [
         'Blå mærker', 'Sår', 'Græder', 'Fraværende', 'Træt', 'Følsom', 'Vred', 'Hyperaktiv', 'Sart'
       ];
       symptoms = lodash.uniq(symptoms);
