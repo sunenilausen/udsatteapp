@@ -1,5 +1,5 @@
 <div flex-gt-sm="90" flex-gt-md="80" layout="column">
-  <h2 class="md-title inset">Find kort</h2>
+  <h2 class="md-title inset">Hvad har du observeret?</h2>
   <md-card class="md-padding">
     <md-input-container>
       <label>Symptomer</label>
@@ -20,7 +20,7 @@
       <md-card-title-text>
          <span class="md-headline"><a ng-href="/#/card/{{ card[1]._id }}">{{ card[1].title }}</a></span>
          <br>
-         <span class="md-subhead">Relevans: {{card[0] * 100}}%</span>
+         <span class="md-subhead">Relevans: {{card[0] * 100 | number: 2}}%</span>
          <br>
          <p>Symptomer: {{card[1].symptoms | joinBy: ', '}}</p>
        </md-card-title-text>

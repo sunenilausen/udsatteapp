@@ -20,8 +20,8 @@ angular
     RestangularProvider.setBaseUrl('http://localhost:3000');
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl',
+        templateUrl: 'views/cards.html',
+        controller: 'CardsCtrl',
         //controllerAs: 'main'
       })
       .when('/about', {

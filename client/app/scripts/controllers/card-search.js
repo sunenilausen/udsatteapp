@@ -36,7 +36,7 @@ angular.module('clientApp')
         console.log(cards[i].symptoms[0]);
       }
       symptoms = [
-        'Blå mærker', 'Sår', 'Græder', 'Fraværende', 'Træt', 'Følsom', 'Vred', 'Hyperaktiv', 'Sart'
+        'Kriminalitet', 'Selvskadende', 'Koncentrations problemer', 'Tristhed', 'Isoleret', 'Angst', 'Lavt selvværd/selvtillid', 'Misbrug', 'Aggressiv', 'Hyperaktiv', 'Unormale reaktioner i socialt samvær', 'Tavshed og overdreven træthed', 'Vil ikke bade sammen med andre', 'Spiseproblemer', 'Udfordrende tøjstil, seksualiserende'
       ];
       symptoms = lodash.uniq(symptoms);
 
